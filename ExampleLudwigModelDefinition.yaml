@@ -1,0 +1,152 @@
+training:
+    batch_size: 32
+    epochs: 1000
+    early_stop: 30
+    learning_rate: 0.001
+    regularization_lambda: 0.01
+
+
+input_features:
+    -
+        name: age
+        type: numerical
+        preprocessing:
+          normalization: zscore
+    -
+        name: sex
+        type: category
+    -
+        name: admit_month_str
+        type: category
+    -
+        name: aweekend
+        type: category
+    -
+        name: planned_pr
+        type: text
+        level: word
+        encoder: embed
+    -
+        name: combined_dx
+        type: text
+        level: word
+        encoder: embed
+    -
+        name: combined_e_codes
+        type: text
+        level: word
+        encoder: embed
+    -
+        name: payer
+        type: category
+    -
+        name: race_converted
+        type: category
+    -
+        name: year
+        type: numerical
+    -
+        name: zipincgrp
+        type: numerical
+        preprocessing:
+            missing_value_strategy: fill_with_mean
+    -
+        name: hosp_bedsize
+        type: category
+    -
+        name: hosp_locteach
+        type: category
+    -
+        name: hosp_region
+        type: category
+    -
+        name: h_contrl_converted
+        type: category
+    - 
+        name: tran_in_condensed
+        type: binary
+        preprocessing:
+            missing_value_strategy: fill_with_const
+            fill_value: "0"
+    - 
+        name: proc_partial_total_shoulder
+        type: binary
+    - 
+        name: proc_other_tsa
+        type: binary
+    -
+        name: proc_reverse_tsa
+        type: binary
+    - 
+        name: elective
+        type: binary
+        preprocessing:
+            missing_value_strategy: fill_with_const
+            fill_value: "0"
+    - 
+        name: aprdrg_risk_mortality
+        type: numerical
+        preprocessing:
+            missing_value_strategy: fill_with_mean
+    - 
+        name: aprdrg_severity
+        type: numerical
+        preprocessing:
+            missing_value_strategy: fill_with_mean
+    -
+      name: ch_mi
+      type: binary
+    -
+      name: ch_chf
+      type: binary
+    -
+      name: ch_pvd
+      type: binary
+    -
+      name: ch_cevd
+      type: binary
+    -
+      name: ch_dem
+      type: binary
+    -
+      name: ch_copd
+      type: binary
+    -
+      name: ch_rheum
+      type: binary
+    -
+      name: ch_pud
+      type: binary
+    -
+      name: ch_mildld
+      type: binary
+    -
+      name: ch_diab_uc
+      type: binary
+    -
+      name: ch_diab_c
+      type: binary
+    -
+      name: ch_para
+      type: binary
+    -
+      name: ch_rd
+      type: binary
+    -
+      name: ch_cancer
+      type: binary
+    -
+      name: ch_msld
+      type: binary
+    -
+      name: ch_mets
+      type: binary
+    -
+      name: ch_hiv
+      type: binary
+
+
+output_features:
+    -
+        name: disp_routine
+        type: binary
